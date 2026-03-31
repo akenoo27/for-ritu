@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Sorry Ritu</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #ffd6e0, #ffeef3);
+  color: #333;
+  text-align: center;
+  overflow-x: hidden;
+}
+.container {
+  padding: 40px 20px;
+}
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #ff8fab;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #ff5c8a;
+}
+.hidden {
+  display: none;
+}
+.message {
+  max-width: 700px;
+  margin: 20px auto;
+  font-size: 18px;
+  line-height: 1.7;
+}
+.gallery img {
+  width: 250px;
+  border-radius: 15px;
+  margin: 10px;
+}
+.heart {
+  position: fixed;
+  color: pink;
+  animation: float 5s linear infinite;
+}
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- Music: Taylor Swift - Back To December (soft apology vibe) -->
+<div style="position:fixed; bottom:10px; right:10px; z-index:999;">
+  <iframe width="250" height="80" 
+    src="https://www.youtube.com/embed/QUwxKWT6m7U?autoplay=1&mute=1&loop=1&playlist=QUwxKWT6m7U" 
+    title="Back To December" frameborder="0" 
+    allow="autoplay; encrypted-media" allowfullscreen
+    style="border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.2);"></iframe>
+</div>
+<p style="position:fixed; bottom:95px; right:15px; font-size:12px; color:#555;">Tap to unmute 🎵</p>
+
+<div class="container" id="start">
+  <h1>For Ritu 💗</h1>
+  <button onclick="startJourney()">Click this if you're ready to know how I feel</button>
+</div>
+
+<div class="container hidden" id="main">
+  <h2>I'm Sorry...</h2>
+  <div class="message">
+    I am sorry I hurt you with my words...<br><br>
+    I won't repeat it again. I love you. I promise to use my words carefully.<br><br>
+    I know I've used them wrong from time to time... but I'm changing, and you know that.<br><br>
+    Please don't leave me. Stay by my side as the person I love, care, and respect the most.
+  </div>
+
+  <div class="message">
+    The way we hold hands... that's my favorite thing in the world.<br>
+    Looking at your face fills me with love and affection.
+    Feeding you and seeing you smile makes me the happiest.
+    And every time I hurt you... I hate myself for it.
+  </div>
+
+  <div class="gallery">
+    <img src="image1.jpg">
+    <img src="image2.jpg">
+    <img src="image3.jpg">
+  </div>
+
+  <h3>Will you forgive me? 💔</h3>
+  <button onclick="forgiveYes()">Yes ❤️</button>
+  <button onclick="forgiveNo()" id="noBtn">No 😢</button>
+</div>
+
+<div class="container hidden" id="end">
+  <h2>Thank you for giving me a chance 💖</h2>
+  <p>I promise I'll be better... for you, for us.</p>
+  <img src="surprise.jpg" style="width:320px; border-radius:20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+  <p style="max-width:600px;margin:20px auto;font-size:18px;line-height:1.6;">
+    This is my favorite memory of us… 💗<br><br>
+    Every time I look at this, I remember how deeply I love you.
+    Not just in moments like this… but in every little thing —
+    the way you smile, the way you hold my hand, the way you exist in my world.
+    <br><br>
+    I don’t want to lose this… I don’t want to lose you.
+  </p>
+</div>
+
+<script>
+let noCount = 0;
+
+function startJourney() {
+  document.getElementById('start').classList.add('hidden');
+  document.getElementById('main').classList.remove('hidden');
+}
+
+function forgiveYes() {
+  document.getElementById('main').classList.add('hidden');
+  document.getElementById('end').classList.remove('hidden');
+}
+
+function forgiveNo() {
+  noCount++;
+  if (noCount >= 10) {
+    document.getElementById('noBtn').style.display = 'none';
+  } else {
+    alert("Please don't say no... 🥺");
+  }
+}
+
+// floating hearts
+setInterval(() => {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerText = '💗';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}, 500);
+</script>
+
+</body>
+</html>
